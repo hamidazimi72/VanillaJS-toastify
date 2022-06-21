@@ -1,0 +1,394 @@
+/* Background Color */
+/* Text Color */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.toast-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.toast-container.toast-container-top-right {
+  top: 1rem;
+  right: 1rem;
+}
+.toast-container.toast-container-top-left {
+  top: 1rem;
+  left: 1rem;
+}
+.toast-container.toast-container-bottom-right {
+  bottom: 1rem;
+  right: 1rem;
+}
+.toast-container.toast-container-bottom-left {
+  bottom: 1rem;
+  left: 1rem;
+}
+.toast-container.toast-container-top-center {
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.toast-container.toast-container-bottom-center {
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.toast-container-reverse {
+  flex-direction: column-reverse;
+}
+
+.toast {
+  min-width: 320px;
+  max-width: 400px;
+  min-height: 60px;
+  padding: 20px;
+  border-radius: 4px;
+  direction: rtl;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+.toast.toast-light-default {
+  background-color: #fff;
+  color: #121212;
+}
+.toast.toast-light-success {
+  background-color: #fff;
+  color: #2ecc71;
+}
+.toast.toast-light-error {
+  background-color: #fff;
+  color: #e74c3c;
+}
+.toast.toast-light-warning {
+  background-color: #fff;
+  color: #f1c40f;
+}
+.toast.toast-light-info {
+  background-color: #fff;
+  color: #3498db;
+}
+.toast.toast-dark-default {
+  background-color: #121212;
+  color: #fff;
+}
+.toast.toast-dark-success {
+  background-color: #121212;
+  color: #2ecc71;
+}
+.toast.toast-dark-error {
+  background-color: #121212;
+  color: #e74c3c;
+}
+.toast.toast-dark-warning {
+  background-color: #121212;
+  color: #f1c40f;
+}
+.toast.toast-dark-info {
+  background-color: #121212;
+  color: #3498db;
+}
+.toast.toast-colored-default {
+  background-color: #fff;
+  color: #fff;
+}
+.toast.toast-colored-success {
+  background-color: #2ecc71;
+  color: #fff;
+}
+.toast.toast-colored-error {
+  background-color: #e74c3c;
+  color: #fff;
+}
+.toast.toast-colored-warning {
+  background-color: #f1c40f;
+  color: #fff;
+}
+.toast.toast-colored-info {
+  background-color: #3498db;
+  color: #fff;
+}
+.toast.toast-enter-slide-top-right {
+  -webkit-animation-name: slideEnterRight;
+          animation-name: slideEnterRight;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.toast.toast-enter-slide-top-left {
+  -webkit-animation-name: slideEnterLeft;
+          animation-name: slideEnterLeft;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.toast.toast-enter-slide-bottom-right {
+  -webkit-animation-name: slideEnterRight;
+          animation-name: slideEnterRight;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.toast.toast-enter-slide-bottom-left {
+  -webkit-animation-name: slideEnterLeft;
+          animation-name: slideEnterLeft;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.toast.toast-enter-slide-top-center {
+  -webkit-animation-name: slideEnterCenter;
+          animation-name: slideEnterCenter;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.toast.toast-enter-slide-bottom-center {
+  -webkit-animation-name: slideEnterCenter;
+          animation-name: slideEnterCenter;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.toast.toast-exit-slide-top-right {
+  -webkit-animation-name: slideExitRight;
+          animation-name: slideExitRight;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.toast.toast-exit-slide-top-left {
+  -webkit-animation-name: slideExitLeft;
+          animation-name: slideExitLeft;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.toast.toast-exit-slide-bottom-right {
+  -webkit-animation-name: slideExitRight;
+          animation-name: slideExitRight;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.toast.toast-exit-slide-bottom-left {
+  -webkit-animation-name: slideExitLeft;
+          animation-name: slideExitLeft;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.toast.toast-exit-slide-top-center {
+  -webkit-animation-name: slideExitCenter;
+          animation-name: slideExitCenter;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.toast.toast-exit-slide-bottom-center {
+  -webkit-animation-name: slideExitCenter;
+          animation-name: slideExitCenter;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+}
+.toast:hover {
+  opacity: 1;
+}
+
+.toast-progress {
+  position: absolute;
+  height: 5px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #bdc3c7;
+  -webkit-animation-name: progressBar;
+          animation-name: progressBar;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  filter: brightness(90%);
+}
+
+.toast-progress-success {
+  background-color: #2ecc71;
+}
+
+.toast-progress-error {
+  background-color: #e74c3c;
+}
+
+.toast-progress-warning {
+  background-color: #f1c40f;
+}
+
+.toast-progress-info {
+  background-color: #3498db;
+}
+
+@-webkit-keyframes progressBar {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+@keyframes progressBar {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+@-webkit-keyframes slideEnterRight {
+  from {
+    transform: translateX(400px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@keyframes slideEnterRight {
+  from {
+    transform: translateX(400px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@-webkit-keyframes slideExitRight {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(400px);
+  }
+}
+@keyframes slideExitRight {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(400px);
+  }
+}
+@-webkit-keyframes slideEnterLeft {
+  from {
+    transform: translateX(-400px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@keyframes slideEnterLeft {
+  from {
+    transform: translateX(-400px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@-webkit-keyframes slideExitLeft {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-400px);
+  }
+}
+@keyframes slideExitLeft {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-400px);
+  }
+}
+@-webkit-keyframes slideEnterTop {
+  from {
+    transform: translateY(-2000px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes slideEnterTop {
+  from {
+    transform: translateY(-2000px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes slideExitTop {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+@keyframes slideExitTop {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+}
+@-webkit-keyframes slideEnterBottom {
+  from {
+    transform: translateY(2000px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes slideEnterBottom {
+  from {
+    transform: translateY(2000px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes slideExitBottom {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(2000px);
+  }
+}
+@keyframes slideExitBottom {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(2000px);
+  }
+}/*# sourceMappingURL=main.css.map */

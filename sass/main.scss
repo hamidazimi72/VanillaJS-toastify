@@ -1,0 +1,120 @@
+@import "./mixin";
+
+$positions: "top" "right", "top" "left", "bottom" "right", "bottom" "left",
+  "top" "center", "bottom" "center";
+
+$lightState: "default" $toastify-text-color-light,
+  "success" $toastify-text-color-success, "error" $toastify-text-color-error,
+  "warning" $toastify-text-color-warning, "info" $toastify-text-color-info;
+
+$darkState: "default" $toastify-text-color-dark,
+  "success" $toastify-text-color-success, "error" $toastify-text-color-error,
+  "warning" $toastify-text-color-warning, "info" $toastify-text-color-info;
+
+$progressState: "success" $toastify-text-color-success,
+  "error" $toastify-text-color-error, "warning" $toastify-text-color-warning,
+  "info" $toastify-text-color-info;
+
+$enterAnimateType: "top-right" slideEnterRight, "top-left" slideEnterLeft,
+  "bottom-right" slideEnterRight, "bottom-left" slideEnterLeft,
+  "top-center" slideEnterCenter, "bottom-center" slideEnterCenter;
+
+$exitAnimateType: "top-right" slideExitRight, "top-left" slideExitLeft,
+  "bottom-right" slideExitRight, "bottom-left" slideExitLeft,
+  "top-center" slideExitCenter, "bottom-center" slideExitCenter;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.toast-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @each $yAxis, $xAxis in $positions {
+    &.toast-container-#{$yAxis}-#{$xAxis} {
+      @include container($yAxis, $xAxis);
+    }
+  }
+}
+
+.toast-container-reverse {
+  flex-direction: column-reverse;
+}
+
+.toast {
+  min-width: 320px;
+  max-width: 400px;
+  min-height: 60px;
+  padding: 20px;
+  border-radius: 4px;
+  direction: rtl;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+  transition: opacity 0.3s;
+
+  @each $type, $color in $lightState {
+    &.toast-light-#{$type} {
+      @include toast($color, light);
+    }
+  }
+
+  @each $type, $color in $darkState {
+    &.toast-dark-#{$type} {
+      @include toast($color, dark);
+    }
+  }
+
+  @each $type, $color in $darkState {
+    &.toast-colored-#{$type} {
+      @include toast($color, colored);
+    }
+  }
+
+  @each $pos, $animation in $enterAnimateType {
+    &.toast-enter-slide-#{$pos} {
+      animation-name: $animation;
+      animation-timing-function: ease-in-out;
+      animation-duration: 0.7s;
+    }
+  }
+
+  @each $pos, $animation in $exitAnimateType {
+    &.toast-exit-slide-#{$pos} {
+      animation-name: $animation;
+      animation-timing-function: ease-in-out;
+      animation-duration: 0.7s;
+    }
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.toast-progress {
+  position: absolute;
+  height: 5px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #bdc3c7;
+  animation-name: progressBar;
+  animation-timing-function: linear;
+  filter: brightness(90%);
+}
+
+@each $theme, $color in $progressState {
+  .toast-progress-#{$theme} {
+    background-color: $color;
+  }
+}
+
+@import "./animation";

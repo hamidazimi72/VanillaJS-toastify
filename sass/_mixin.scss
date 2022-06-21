@@ -1,0 +1,30 @@
+@import "./variables";
+
+@mixin container($yAxis, $xAxis) {
+  #{$yAxis}: 1rem;
+  @if #{$xAxis} == center {
+    left: 50%;
+    transform: translateX(-50%);
+  } @else {
+    #{$xAxis}: 1rem;
+  }
+}
+
+@mixin toast($color, $theme) {
+  @if $theme == light {
+    background-color: $toastify-bg-color-light;
+    color: $color;
+  } @else if $theme == dark {
+    background-color: $toastify-bg-color-dark;
+    color: $color;
+  } @else if $theme == colored {
+    background-color: $color;
+    color: #fff;
+  }
+}
+
+@mixin toastAnimate($position, $animation) {
+  animation-name: $animation;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.7s;
+}
